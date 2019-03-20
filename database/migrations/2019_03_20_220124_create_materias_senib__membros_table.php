@@ -14,8 +14,14 @@ class CreateMateriasSenibMembrosTable extends Migration
     public function up()
     {
         Schema::create('materias_senib__membros', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+
+            $table->unsignedInteger('materias_senib_id');
+            $table->unsignedInteger('membros_id');
+            $table->unsignedInteger('papel_membro_materia_id');
+
+            $table->foreign('materias_senib_id')->references('mts_id')->on('materias_senibs');
+            $table->foreign('membros_id')->references('mem_id')->on('membros');
+            $table->foreign('papel_membro_materia')->references('pmm_id')->on('papel_membro_materias');
         });
     }
 

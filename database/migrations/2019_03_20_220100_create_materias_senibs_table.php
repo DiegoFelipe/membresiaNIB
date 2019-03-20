@@ -14,7 +14,8 @@ class CreateMateriasSenibsTable extends Migration
     public function up()
     {
         Schema::create('materias_senibs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('mts_id');
+            $table->string('mts_nome');
             $table->timestamps();
         });
     }

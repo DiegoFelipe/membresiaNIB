@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePapelMembroMinisteriosTable extends Migration
+class CreateContatosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreatePapelMembroMinisteriosTable extends Migration
      */
     public function up()
     {
-        Schema::create('papel_membro_ministerios', function (Blueprint $table) {
-            $table->increments('pmm_id');
-            $table->string('pmm_nome')->comment('Se o membro foi participante, líder ou sub líder do ministério');
+        Schema::create('contatos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unique('email')->nullable();
+            $table->integer('ddd');
+            $table->integer('');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +29,6 @@ class CreatePapelMembroMinisteriosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('papel_membro_ministerios');
+        Schema::dropIfExists('contatos');
     }
 }

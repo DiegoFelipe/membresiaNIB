@@ -14,7 +14,8 @@ class CreateGruposPequenosTable extends Migration
     public function up()
     {
         Schema::create('grupos_pequenos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('nome')->nullable()->comment('Nome do Grupo (se tiver)');
             $table->timestamps();
         });
     }

@@ -14,8 +14,12 @@ class CreatePapelMembroMateriaSenibsTable extends Migration
     public function up()
     {
         Schema::create('papel_membro_materia_senibs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->increments('pma_id');
+            $table->string('pma_nome');
+            $table->unsignedInteger('pma_datas_materia_senib_ministradas_id')
+
+            $table->foreign('pma_datas_materia_senib_ministradas_id')->references('dmm_id')->on('datas_materia_senib_ministradas');
+
         });
     }
 
