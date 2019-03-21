@@ -14,8 +14,8 @@ class CreatePapelMembroGrupoPequenosTable extends Migration
     public function up()
     {
         Schema::create('papel_membro_grupo_pequenos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->increments('pmg_id');
+            $table->string('pmg_nome');
         });
     }
 
