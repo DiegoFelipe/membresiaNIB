@@ -14,7 +14,11 @@ class CreateRespostasTable extends Migration
     public function up()
     {
         Schema::create('respostas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('res_id');
+            $table->text('res_resposta');
+            $table->unsignedInteger('res_pergunta_id');
+
+            $table->foreign('res_pergunta_id')->references('per_id')->on('perguntas');
             $table->timestamps();
         });
     }

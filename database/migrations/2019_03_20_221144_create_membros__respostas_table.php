@@ -14,8 +14,12 @@ class CreateMembrosRespostasTable extends Migration
     public function up()
     {
         Schema::create('membros__respostas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('mrp_id');
+            $table->unsignedInteger('mrp_membros_id');
+            $table->unsignedInteger('mrp_respostas_id');
+
             $table->timestamps();
+
         });
     }
 

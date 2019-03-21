@@ -14,8 +14,8 @@ class CreateGrupoPerguntasTable extends Migration
     public function up()
     {
         Schema::create('grupo_perguntas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->increments('gpg_id');
+            $table->string('gpg_nome');
         });
     }
 
