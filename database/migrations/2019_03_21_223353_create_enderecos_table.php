@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContatosTable extends Migration
+class CreateEnderecosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateContatosTable extends Migration
      */
     public function up()
     {
-        Schema::create('contatos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unique('email')->nullable();
-            $table->integer('ddd');
-            $table->integer('');
-            $table->timestamps();
+        Schema::create('enderecos', function (Blueprint $table) {
+            $table->increments('end_id');
+            $table->string('end_endereco');
+
         });
     }
 
@@ -29,6 +27,6 @@ class CreateContatosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contatos');
+        Schema::dropIfExists('enderecos');
     }
 }
