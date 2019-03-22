@@ -9,7 +9,12 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div id="root">
+     <script src="{{mix('js/app.js')}}" ></script>
+     <script type="text/javascript">
+          <Header />
+     </script>
+    </div>
 @stop
 
 @section('css')
