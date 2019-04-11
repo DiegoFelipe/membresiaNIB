@@ -38,6 +38,7 @@ class MembroController extends Controller
         'mem_nome' => $request->get('mem_nome'),
         'mem_data_nascimento' => $request->get('mem_data_nascimento')
       ]);
+      // dd('asasdasd');
       $membro->save();
       return response()->json('Adicionado com sucesso');
       // dd($request->all());

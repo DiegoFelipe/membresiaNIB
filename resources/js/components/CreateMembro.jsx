@@ -26,7 +26,7 @@ export default class CreateMembro extends Component {
 
     let uri = 'http://membresia/membros'
     axios.post(uri, dataForm).then((response) => {
-      console.log(response)
+      console.log(response.data)
     })
   }
 
