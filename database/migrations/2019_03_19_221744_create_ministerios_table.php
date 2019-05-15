@@ -16,6 +16,7 @@ class CreateMinisteriosTable extends Migration
         Schema::create('ministerios', function (Blueprint $table) {
             $table->increments('min_id');
             $table->string('min_nome');
+            $table->string('min_descricao');
             $table->timestamps();
         });
     }

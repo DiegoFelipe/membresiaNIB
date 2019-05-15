@@ -19,11 +19,11 @@ class CreateMembroMinisteriosTable extends Migration
             $table->date('mem_fim')->comment('Data em que o membro saiu no ministério')->nullable();
             $table->unsignedInteger('membro_id');
             $table->unsignedInteger('ministerio_id');
-            $table->unsignedInteger('papel_membro_ministerio');
+            $table->unsignedInteger('papel_membro_ministerios_id');
 
             $table->foreign('membro_id')->references('mem_id')->on('membros');
             $table->foreign('ministerio_id')->references('min_id')->on('ministerios');
-            $table->foreign('papel_membro_ministerio')->references('pmm_id')->on('papel_membro_ministerios');
+            $table->foreign('papel_membro_ministerios_id')->references('pmm_id')->on('papel_membro_ministerios');
         });
     }
 

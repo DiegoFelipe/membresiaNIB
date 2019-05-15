@@ -21,7 +21,7 @@ class CreateMateriasSenibMembrosTable extends Migration
 
             $table->foreign('materias_senib_id')->references('mts_id')->on('materias_senibs');
             $table->foreign('membros_id')->references('mem_id')->on('membros');
-            $table->foreign('papel_membro_materia')->references('pmm_id')->on('papel_membro_materias');
+            $table->foreign('papel_membro_materia_id')->references('pma_id')->on('papel_membro_materia_senibs');
         });
     }
 
