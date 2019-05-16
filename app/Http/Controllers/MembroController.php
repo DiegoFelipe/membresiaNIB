@@ -34,14 +34,14 @@ class MembroController extends Controller
      */
     public function create(Request $request)
     {
-      $membro = new Membro([
-        'mem_nome' => $request->get('mem_nome'),
-        'mem_data_nascimento' => $request->get('mem_data_nascimento')
-      ]);
-      // dd('asasdasd');
-      $membro->save();
-      return response()->json('Adicionado com sucesso');
-      // dd($request->all());
+      // $membro = new Membros([
+      //   'mem_nome' => $request->get('mem_nome'),
+      //   'mem_data_nascimento' => $request->get('mem_data_nascimento')
+      // ]);
+      // // dd('asasdasd');
+      // $membro->save();
+      // return response()->json('Adicionado com sucesso');
+      // // dd($request->all());
     }
 
     /**
@@ -52,7 +52,14 @@ class MembroController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+      $membro = new Membros([
+        'mem_nome' => $request->get('mem_nome'),
+        'mem_data_nascimento' => $request->get('mem_data_nascimento')
+      ]);
+      // dd('asasdasd');
+      $membro->save();
+      return response()->json('Adicionado com sucesso');
+      // dd($request->all());
     }
 
     /**

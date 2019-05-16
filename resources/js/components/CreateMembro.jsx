@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import Select2 from 'react-select2-wrapper';
 
 export default class CreateMembro extends Component {
 
@@ -22,10 +23,14 @@ export default class CreateMembro extends Component {
     const dataForm = {
       mem_nome : this.state.mem_nome,
       mem_data_nascimento : this.state.mem_data_nascimento
+      // mem_nome : 'diego',
+      // mem_data_nascimento : '16/08/1991'
     }
 
-    let uri = 'http://membresia/membros'
+    var uri = 'http://membresia/membros'
     axios.post(uri, dataForm).then((response) => {
+      console.log(res)
+      console.log("asdsa")
       console.log(response.data)
     })
   }
@@ -50,6 +55,20 @@ export default class CreateMembro extends Component {
 
                     <Form.Label>Data de Nascimento</Form.Label>
                     <Form.Control id="mem_data_nascimento" type="date" placeholder="Data de Nascimento" onChange={this.handleFormInput}/>
+
+                  <Form.Row>
+                    <Form.Label md={6}>Ministérios</Form.Label>
+                      <Select2 md={6}
+                          multiple
+                          data={['bug', 'feature', 'documents', 'discussion']}
+                          options={
+                            {
+                              placeholder: 'Selecione os ministérios que o membro participa',
+                            }
+                          }
+                        />
+                    </Form.Row>
+
                   </Form.Group>
                   <Button type="submit" variant="primary">
                     Enviar
