@@ -15,7 +15,7 @@ class CreateMembroMinisteriosTable extends Migration
     {
         Schema::create('membro_ministerios', function (Blueprint $table) {
 
-            $table->date('mem_inicio')->comment('Data em que o membro entrou no ministério');
+            $table->date('mem_inicio')->comment('Data em que o membro entrou no ministério')->nullable();
             $table->date('mem_fim')->comment('Data em que o membro saiu no ministério')->nullable();
             $table->unsignedInteger('membro_id');
             $table->unsignedInteger('ministerio_id');

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Models\Membros;
+use App\Models\Membro;
 // use App\Services\MembroService;
 
 class MembroController extends Controller
@@ -34,7 +34,7 @@ class MembroController extends Controller
      */
     public function create(Request $request)
     {
-      // $membro = new Membros([
+      // $membro = new Membro([
       //   'mem_nome' => $request->get('mem_nome'),
       //   'mem_data_nascimento' => $request->get('mem_data_nascimento')
       // ]);
@@ -52,14 +52,31 @@ class MembroController extends Controller
      */
     public function store(Request $request)
     {
-      $membro = new Membros([
-        'mem_nome' => $request->get('mem_nome'),
-        'mem_data_nascimento' => $request->get('mem_data_nascimento')
-      ]);
+      // $membro = Membro::create([
+      //   'mem_nome' => $request->get('mem_nome'),
+      //   'mem_data_nascimento' => $request->get('mem_data_nascimento')
+      // ]);
+      //
+      // if($membro->save()){
+      //
+      //   return response()->json('Adicionado com sucesso');
+      //
+      // } else {
+      //     return response()->json('deu ruim');
+      // }
+      //
+
       // dd('asasdasd');
-      $membro->save();
-      return response()->json('Adicionado com sucesso');
       // dd($request->all());
+      //
+      $membro = new Membro;
+      $membro->mem_nome = $request->mem_nome;
+      $membro->mem_data_nascimento = $request->mem_data_nascimento;
+      $membro->save();
+
+      return response()->json('Membro adicionado com sucesso');
+
+
     }
 
     /**

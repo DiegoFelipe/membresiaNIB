@@ -17,3 +17,5 @@ Route::get('/{path?}', function () {
 
 
 Route::resource('membros', 'MembroController');
+
+Route::get('allministerios', 'MinisteriosController@getAllMinisterios');
