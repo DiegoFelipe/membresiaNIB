@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Membro;
 // use App\Services\MembroService;
+use Illuminate\Support\Facades\Log;
 
 class MembroController extends Controller
 {
@@ -73,6 +74,9 @@ class MembroController extends Controller
       $membro->mem_nome = $request->mem_nome;
       $membro->mem_data_nascimento = $request->mem_data_nascimento;
       $membro->save();
+
+      Log::error('asdasdsad');
+
 
       return response()->json('Membro adicionado com sucesso');
 

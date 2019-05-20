@@ -7,13 +7,11 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Select from 'react-select'
 
-const options = []
-
 export default class CreateMembro extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {mem_nome: '', mem_data_nascimento: '', selectedOption: null, opcoes: null}
+    this.state = {mem_nome: '', mem_data_nascimento: '', selectedOption: null, opcoes: []}
 
     this.handleFormInput = this.handleFormInput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,16 +20,32 @@ export default class CreateMembro extends Component {
 
 
   componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
-      console.log(res.data)
-      this.setState({ opcoes: res.data})
+
+    axios.get('http://membresia/get-all-ministerios').then((res) => {
+
+      let response = []
+
+      res.data.map(r => {
+        r.value = r.min_nome
+        r.label = r.min_descricao
+
+        delete r.min_nome
+        delete r.min_descricao
+        delete r.min_id
+        delete r.created_at
+        delete r.updated_at
+        response.push(r);
+      })
+
+      this.setState({ opcoes: response})
+
     })
   }
 
 
   handleChange(selectedOption) {
    this.setState({ selectedOption });
-   console.log(`Option selected:`, selectedOption);
+
  }
 
   handleSubmit(event) {
@@ -78,7 +92,7 @@ export default class CreateMembro extends Component {
                         isMulti={true}
                         value={this.state.selectedOption}
                         onChange={this.handleChange}
-                        options={options}
+                        options={this.state.opcoes}
                         placeholder="Selecione o(s) ministério(s)"
                       />
                   </Form.Group>

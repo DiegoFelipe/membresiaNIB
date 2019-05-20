@@ -16,5 +16,10 @@ class MinisteriosTableSeeder extends Seeder
           'min_nome' => 'percussao',
           'min_descricao' => 'Ministério de Percussão',
         ]);
+
+        DB::table('ministerios')->insert([
+          'min_nome' => 'internet',
+          'min_descricao' => 'Ministério de Internet',
+        ]);
     }
 }

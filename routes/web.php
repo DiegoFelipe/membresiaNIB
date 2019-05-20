@@ -11,11 +11,10 @@
 |
 */
 
+Route::get('get-all-ministerios', 'MinisteriosController@getAll');
 Route::get('/{path?}', function () {
     return view('welcome');
 });
 
 
 Route::resource('membros', 'MembroController');
-
-Route::get('allministerios', 'MinisteriosController@getAllMinisterios');
