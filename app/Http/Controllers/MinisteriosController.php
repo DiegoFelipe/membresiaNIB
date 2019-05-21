@@ -8,10 +8,9 @@ use Illuminate\Support\Facades\Log;
 
 class MinisteriosController extends Controller
 {
-    public function getAll() {
+    public function getAll(Request $request) {
       $ministerios = Ministerio::all();
       $response = $ministerios->pluck('min_descricao', 'min_nome');
-      // dd($response);
       return $ministerios->toArray();
     }
 }

@@ -18,10 +18,14 @@ export default class CreateMembro extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
+  getHostName() {
+    return `http://${window.location.hostname}`
+  }
+
 
   componentDidMount() {
 
-    axios.get('http://membresia/get-all-ministerios').then((res) => {
+    axios.get(`${this.getHostName()}/get-all-ministerios`).then((res) => {
 
       let response = []
 
@@ -38,17 +42,15 @@ export default class CreateMembro extends Component {
       })
 
       this.setState({ opcoes: response})
-
     })
   }
 
+    handleChange(selectedOption) {
+     this.setState({ selectedOption });
+     console.log(selectedOption)
+    }
 
-  handleChange(selectedOption) {
-   this.setState({ selectedOption });
-
- }
-
-  handleSubmit(event) {
+    handleSubmit(event) {
     event.preventDefault()
 
     const dataForm = {
@@ -56,8 +58,7 @@ export default class CreateMembro extends Component {
       mem_data_nascimento : this.state.mem_data_nascimento
     }
 
-    var uri = 'http://membresia/membros'
-    axios.post(uri, dataForm).then((response) => {
+    axios.post(`${this.getHostName()}/membros`, dataForm).then((response) => {
       console.log(response.data)
     }).catch((error)=>{
        console.log(error)
@@ -80,25 +81,34 @@ export default class CreateMembro extends Component {
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group>
                     <Form.Label>Nome do Membro</Form.Label>
-                  <Form.Control id="mem_nome" type="text" placeholder="Nome do Membro" onChange={this.handleFormInput} />
+                    <Form.Control id="mem_nome" type="text" placeholder="Nome do Membro" onChange={this.handleFormInput} />
 
                     <Form.Label>Data de Nascimento</Form.Label>
                     <Form.Control id="mem_data_nascimento" type="date" placeholder="Data de Nascimento" onChange={this.handleFormInput}/>
 
-
                     <Form.Label >Ministérios</Form.Label>
 
+
                       <Select
+                        id="minid"
+                        name="asdasd89NAMEEE"
+                        ref="refsid"
+                        inputId={"minresss"}
+                        inputId="ministerios"
+                        controlId="sdasd78gd"
                         isMulti={true}
+                        labelKey="labelkeu"
+                        isSearchable={true}
                         value={this.state.selectedOption}
                         onChange={this.handleChange}
                         options={this.state.opcoes}
-                        placeholder="Selecione o(s) ministério(s)"
-                      />
+                        placeholder="Selecione o(s) ministério(s)">
+
+                      </Select>
+
+
+
                   </Form.Group>
-
-
-
                   <Button type="submit" variant="primary">
                     Enviar
                   </Button>
@@ -106,7 +116,6 @@ export default class CreateMembro extends Component {
               </Col>
             </Row>
           </Container>
-
         );
     }
 }

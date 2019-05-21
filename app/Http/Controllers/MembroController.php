@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Membro;
 // use App\Services\MembroService;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\MembroRequest;
 
 class MembroController extends Controller
 {
@@ -33,16 +34,9 @@ class MembroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(Membro $request)
     {
-      // $membro = new Membro([
-      //   'mem_nome' => $request->get('mem_nome'),
-      //   'mem_data_nascimento' => $request->get('mem_data_nascimento')
-      // ]);
-      // // dd('asasdasd');
-      // $membro->save();
-      // return response()->json('Adicionado com sucesso');
-      // // dd($request->all());
+
     }
 
     /**
@@ -53,29 +47,13 @@ class MembroController extends Controller
      */
     public function store(Request $request)
     {
-      // $membro = Membro::create([
-      //   'mem_nome' => $request->get('mem_nome'),
-      //   'mem_data_nascimento' => $request->get('mem_data_nascimento')
-      // ]);
-      //
-      // if($membro->save()){
-      //
-      //   return response()->json('Adicionado com sucesso');
-      //
-      // } else {
-      //     return response()->json('deu ruim');
-      // }
-      //
+      dd($request->all());
 
-      // dd('asasdasd');
-      // dd($request->all());
-      //
       $membro = new Membro;
       $membro->mem_nome = $request->mem_nome;
       $membro->mem_data_nascimento = $request->mem_data_nascimento;
       $membro->save();
 
-      Log::error('asdasdsad');
 
 
       return response()->json('Membro adicionado com sucesso');
