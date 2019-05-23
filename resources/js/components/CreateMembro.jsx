@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Select from 'react-select'
+window.axios = require('axios');
 
 export default class CreateMembro extends Component {
 
@@ -30,15 +31,11 @@ export default class CreateMembro extends Component {
       let response = []
 
       res.data.map(r => {
-        r.value = r.min_nome
-        r.label = r.min_descricao
+        let resp = []
+        resp.value = r.min_nome
+        resp.label = r.min_descricao
 
-        delete r.min_nome
-        delete r.min_descricao
-        delete r.min_id
-        delete r.created_at
-        delete r.updated_at
-        response.push(r);
+        response.push(resp);
       })
 
       this.setState({ opcoes: response})
@@ -55,8 +52,10 @@ export default class CreateMembro extends Component {
 
     const dataForm = {
       mem_nome : this.state.mem_nome,
-      mem_data_nascimento : this.state.mem_data_nascimento
+      mem_data_nascimento : this.state.mem_data_nascimento,
+      selectedOption: this.state.selectedOption
     }
+    console.log(this.state.selectedOption)
 
     axios.post(`${this.getHostName()}/membros`, dataForm).then((response) => {
       console.log(response.data)
@@ -70,7 +69,7 @@ export default class CreateMembro extends Component {
       [event.target.id]: event.target.value
     })
 
-    console.log(event.target.id+'--'+event.target.value)
+    console.log2(event.target.id+'--'+event.target.value)
   }
 
     render() {
@@ -87,8 +86,6 @@ export default class CreateMembro extends Component {
                     <Form.Control id="mem_data_nascimento" type="date" placeholder="Data de Nascimento" onChange={this.handleFormInput}/>
 
                     <Form.Label >Ministérios</Form.Label>
-
-
                       <Select
                         id="minid"
                         name="asdasd89NAMEEE"
@@ -103,11 +100,7 @@ export default class CreateMembro extends Component {
                         onChange={this.handleChange}
                         options={this.state.opcoes}
                         placeholder="Selecione o(s) ministério(s)">
-
                       </Select>
-
-
-
                   </Form.Group>
                   <Button type="submit" variant="primary">
                     Enviar
