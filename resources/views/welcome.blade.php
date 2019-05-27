@@ -9,7 +9,7 @@
 @section('content_header')
     <h1>MembresiaNIB</h1>
 
-    <?php echo csrf_token(); ?>
+    <?php echo '<input type="hidden" id="csrf_token" value="'.csrf_token().'">'; ?>
 
 @stop
 
@@ -27,5 +27,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>window.axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('#csrf_token').value</script>
 @stop
