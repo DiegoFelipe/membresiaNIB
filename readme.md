@@ -11,7 +11,6 @@ MembresiaNIB é um sistema opensource que ajuda a ter rápidas informações sob
 - Laravel
 - Mysql
 - Reactjs
-- GraphQL
 
 ## Instalação
 
