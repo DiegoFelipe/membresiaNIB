@@ -12,7 +12,7 @@ export default class CreateMembro extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {mem_nome: '', mem_data_nascimento: '', selectedOption: null, opcoes: []}
+    this.state = {mem_nome: '', mem_data_nascimento: '', selectedOption: [], opcoes: []}
 
     this.handleFormInput = this.handleFormInput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -43,8 +43,9 @@ export default class CreateMembro extends Component {
   }
 
     handleChange(selectedOption) {
-     this.setState({ selectedOption });
-     console.log(selectedOption)
+      var value = Object.values(selectedOption)
+     this.setState({ selectedOption : selectedOption });
+     console.log('asdsad222', value)
     }
 
     handleSubmit(event) {
@@ -55,7 +56,6 @@ export default class CreateMembro extends Component {
       mem_data_nascimento : this.state.mem_data_nascimento,
       selectedOption: this.state.selectedOption
     }
-    console.log(this.state.selectedOption)
 
     axios.post(`${this.getHostName()}/membros`, dataForm).then((response) => {
       console.log(response.data)
@@ -69,7 +69,7 @@ export default class CreateMembro extends Component {
       [event.target.id]: event.target.value
     })
 
-    console.log2(event.target.id+'--'+event.target.value)
+    console.log(event.target.id+'--'+event.target.value)
   }
 
     render() {
