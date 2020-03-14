@@ -994,9 +994,9 @@ acorn-dynamic-import@^4.0.0:
   integrity sha512-d3OEjQV4ROpoflsnUA8HozoIR504TFxNivYEUi6uwz0IYhBkTDXGuWlNdMtybRt3nqVx/L6XqMt0FxkXuWKZhw==
 
 acorn@^6.0.5:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
-  integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.1.tgz#531e58ba3f51b9dacb9a6646ca4debf5b14ca474"
+  integrity sha512-ZVA9k326Nwrj3Cj9jlh3wGFutC2ZornPNARZwsNYqQYgN0EsV2d53w5RN/co65Ohn4sUAUtb1rSUAOD6XN9idA==
 
 adjust-sourcemap-loader@^1.1.0:
   version "1.2.0"
@@ -5646,15 +5646,6 @@ react-router@5.0.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-select2-wrapper@^1.0.4-beta6:
-  version "1.0.4-beta6"
-  resolved "https://registry.yarnpkg.com/react-select2-wrapper/-/react-select2-wrapper-1.0.4-beta6.tgz#f2681d86cc6828fccc078037d51f82019df02434"
-  integrity sha512-YejtCElEf8GUYzbfOEs6cv8YUjul031nNdwkSpkGSQ0NkktPzXAzlcehKb1coC3tmmIxbCFH6flEjMt9dqckDg==
-  dependencies:
-    prop-types "^15.5.8"
-    select2 "^4.0.0"
-    shallow-equal-fuzzy "^0.0.2"
-
 react-select@^2.4.3:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-2.4.3.tgz#62efdf76d7e33e9bde22d907a0cc8abd0aeab656"
@@ -6039,11 +6030,6 @@ select-hose@^2.0.0:
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
 
-select2@^4.0.0:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/select2/-/select2-4.0.7.tgz#7b80473ef7900f4dc2b988623275fe569204ae8d"
-  integrity sha512-t46Z2nkEEYnBYdRpLNw5dj9qqO+YTiTlWKnpJ/B5e1Q3hPND00JRgcLJxYRzqpeLZd+ZkszkHEMagLKIfbTjVA==
-
 selfsigned@^1.10.4:
   version "1.10.4"
   resolved "https://registry.yarnpkg.com/selfsigned/-/selfsigned-1.10.4.tgz#cdd7eccfca4ed7635d47a08bf2d5d3074092e2cd"
@@ -6164,11 +6150,6 @@ shallow-clone@^1.0.0:
     is-extendable "^0.1.1"
     kind-of "^5.0.0"
     mixin-object "^2.0.1"
-
-shallow-equal-fuzzy@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/shallow-equal-fuzzy/-/shallow-equal-fuzzy-0.0.2.tgz#999717c968d36223b1bd7ea95405b697b19fd55c"
-  integrity sha1-mZcXyWjTYiOxvX6pVAW2l7Gf1Vw=
 
 shebang-command@^1.2.0:
   version "1.2.0"
